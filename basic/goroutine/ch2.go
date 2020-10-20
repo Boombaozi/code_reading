@@ -87,3 +87,7 @@ func (s *sub) loop() {
 		}
 	}
 }
+
+func main() {
+	passBall()
+}

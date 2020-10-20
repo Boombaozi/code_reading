@@ -6,6 +6,10 @@ import (
 	"sync/atomic"
 )
 
+func main() {
+	atomicAdd()
+}
+
 func atomicAdd() {
 	var data, data2 int64
 	var wg sync.WaitGroup

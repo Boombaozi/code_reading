@@ -6,6 +6,9 @@ import (
 	"time"
 )
 
+//context
+//作为一种上下文，共享于多个 goroutine
+
 // Tip: 通过 cancel 主动关闭
 func ctxCancel() {
 	ctx, cancel := context.WithCancel(context.Background())
@@ -13,7 +16,7 @@ func ctxCancel() {
 		select {
 		case <-ctx.Done():
 			fmt.Println(ctx.Err())
-		case <-time.After(time.Millisecond * 100):
+		case <-time.After(time.Millisecond * 1):
 			fmt.Println("Time out")
 		}
 	}(ctx)
@@ -64,4 +67,8 @@ func ctxValue() {
 		}
 	}(ctx)
 	time.Sleep(time.Second)
+}
+
+func main() {
+	ctxTimeout()
 }
